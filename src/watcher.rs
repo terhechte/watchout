@@ -6,21 +6,14 @@ use notify::{RecommendedWatcher, RecursiveMode, Watcher};
 use std::path::PathBuf;
 
 /// Watch paths. Each `path` will be watched recursively
-pub fn watch(path: PathBuf, sink: ExtEventSink) -> notify::Result<()> {
-    // Create a channel to receive the events.
-
-    //let (otx, orx) = channel();
-    let path = path.clone();
-
-    // This is a simple loop, but you may want to use more complex logic here,
-    // for example to handle I/O.
+pub fn watch(paths: Vec<PathBuf>, sink: ExtEventSink) -> notify::Result<()> {
     std::thread::spawn(move || {
         let (tx, rx) = unbounded();
         let mut watcher: RecommendedWatcher = Watcher::new(tx).unwrap();
 
-        // Add a path to be watched. All files and directories at that path and
-        // below will be monitored for changes.
-        watcher.watch(&path, RecursiveMode::Recursive).unwrap();
+        for path in paths {
+            watcher.watch(&path, RecursiveMode::Recursive).unwrap();
+        }
 
         let mut last_sender: Option<Sender<bool>> = None;
         loop {

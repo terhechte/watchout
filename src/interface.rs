@@ -23,9 +23,7 @@ pub fn launch_app(config: Config) {
     let launcher = AppLauncher::with_window(main_window);
     let event_sink = launcher.get_external_handle();
 
-    for path in config.watch_paths() {
-        watcher::watch(path.into(), event_sink.clone()).expect("Expect a watchable path");
-    }
+    watcher::watch(config.watch_paths(), event_sink.clone()).expect("Expect a watchable path");
     let delegate = delegate::Delegate::new(event_sink, config);
 
     let launcher = launcher.delegate(delegate);

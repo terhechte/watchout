@@ -16,7 +16,7 @@ Watchout should run cross platform, but it has only been tested on macOS.
 
 https://user-images.githubusercontent.com/132234/151373030-d46e33bd-b0f5-46a7-a8ab-73359ef74309.mov
 
-(In this demo you can see watchout running `cargo run --example image` whenever the `image.rs` file is saved.
+(In this demo you can see watchout running `cargo run --example image` whenever the `image.rs` file is saved. The `image` example writes `output.png` to disk which is displayed by watchout.
 
 ## Usage
 

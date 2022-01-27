@@ -1,6 +1,6 @@
 # Watchout
 
-A cross platform reloading image viewer combined with a command executore.
+A cross platform reloading image viewer combined with a command executor.
 
 <img src="resources/icon.png" width="256" height="256" />
 
@@ -79,3 +79,14 @@ Or, on macOS
 - [ ] Allow manually reloading an image / running the command
 - [ ] Allow zooming / panning of the image
 - [ ] Show the log output in the app
+
+## Libraries
+
+Watchout was build using these fine libraries
+
+- [druid](https://github.com/linebender/druid)
+- [notify](https://github.com/notify-rs/notify)
+- [clap](https://crates.io/crates/clap)
+- [anyhow](https://crates.io/crates/anyhow)
+- [crossbeam](https://crates.io/crates/crossbeam)
+- [tracing](https://crates.io/crates/tracing)

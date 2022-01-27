@@ -1,0 +1,36 @@
+[package]
+name = "watchout"
+version = "0.1.0"
+edition = "2021"
+description = "Automatically run scripts and reload images"
+authors = ["Benedikt Terhechte <terhechte@gmail.com>"]
+license = "MIT"
+readme = "Readme.md"
+repository = "https://github.com/terhechte/watchout"
+homepage = "https://github.com/terhechte/watchout"
+keywords = ["image", "picture", "reload", "refresh", "script", "execute"]
+categories = ["multimedia::images", "visualization", "command-line-utilities", "development-tools"]
+
+[package.metadata.bundle]
+name = "Watchout"
+identifier = "com.stylemac.watchout"
+icon = ["icons/mac/Icon.icns", "icons/win/icon-256.png", "icons/win/icon-32.png", "icons/win/icon-16.png"]
+version = "0.1.0"
+copyright = "Copyright (c) Benedikt Terhechte (2022). All rights reserved."
+category = "Developer Tool"
+short_description = "Automatically run scripts and reload images"
+osx_minimum_system_version = "10.10"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+notify = { git = "https://github.com/notify-rs/notify", branch = "main"}
+clap = { version = "3.0.12", features = ["derive", "cargo"]}
+anyhow = "1.0.53"
+druid = { git = "https://github.com/linebender/druid", branch = "master", features = ["svg", "image", "png", "jpeg"]}
+crossbeam-channel = "0.5.2"
+tracing = "0.1.29"
+tracing-subscriber = "0.3.0"
+
+[profile.dev]
+split-debuginfo = "unpacked"
